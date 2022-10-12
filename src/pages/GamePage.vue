@@ -7,9 +7,11 @@
     <!-- 胜利 -->
     <a-row align="center">
       <div v-if="gameStatus === 3" style="text-align: center">
-        <h2>恭喜，你赢啦！🎉</h2>
+        <!-- <h2>恭喜，你赢啦！🎉</h2>
         <img alt="程序员鱼皮" src="../assets/kunkun.png" />
-        <my-ad style="margin-top: 16px" />
+        <my-ad style="margin-top: 16px" /> -->
+        <h2>通关了喵！</h2>
+        <a-button @click="goLeqeeDrawPrize"></a-button>
       </div>
     </a-row>
     <!-- 分层选块 -->
@@ -69,7 +71,7 @@
       </div>
     </a-row>
     <!-- 技能 -->
-    <div class="skill-board">
+    <!-- <div class="skill-board">
       <a-space>
         <a-button size="small" @click="doRevert">撤回</a-button>
         <a-button size="small" @click="doRemove">移出</a-button>
@@ -78,7 +80,7 @@
         <a-button size="small" @click="doHolyLight">圣光</a-button>
         <a-button size="small" @click="doSeeRandom">透视</a-button>
       </a-space>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -86,7 +88,7 @@
 import useGame from "../core/game";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
-import MyAd from "../components/MyAd.vue";
+// import MyAd from "../components/MyAd.vue";
 
 const router = useRouter();
 
@@ -116,6 +118,11 @@ const {
  */
 const doBack = () => {
   router.back();
+};
+
+const goLeqeeDrawPrize=()=>{
+  // TODO 这里是抽奖页面，做一些前端校验防止有人恶意刷
+  window.location.replace('https://www.leqee.com/');
 };
 
 onMounted(() => {

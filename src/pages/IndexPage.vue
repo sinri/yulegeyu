@@ -1,8 +1,16 @@
 <template>
   <div id="indexPage">
-    <h1>🐟 鱼了个鱼</h1>
-    <div style="margin-bottom: 16px">低配版羊了个羊小游戏，仅供消遣</div>
+    <!-- <h1>乐了个其</h1> -->
+    <!-- <div style="margin-bottom: 60vh">&nbsp;</div>
     <a-button
+      block
+      style="margin-bottom: 16px"
+      @click="toGamePage(easyGameConfig)"
+    >
+      快来通关吧，否则会被优化掉！
+    </a-button> -->
+    
+    <!-- <a-button
       block
       style="margin-bottom: 16px"
       @click="toGamePage(easyGameConfig)"
@@ -22,7 +30,8 @@
       @click="toGamePage(hardGameConfig)"
     >
       困难模式
-    </a-button>
+    </a-button> -->
+    <!-- 
     <a-button
       block
       style="margin-bottom: 16px"
@@ -48,24 +57,26 @@
       自定义 🔥
     </a-button>
     <my-ad />
+    -->
     <div class="footer">
-      鱼了个鱼 ©2022 by
-      <a href="https://github.com/liyupi" target="_blank" style="color: #fff">
-        程序员鱼皮
-      </a>
-      |
       <a
-        href="https://github.com/liyupi/yulegeyu"
+        href="https://github.com/sinri/yulegeyu"
         target="_blank"
         style="color: #fff"
       >
-        代码开源
+        乐了个其
+      </a>
+      |
+      Powered by
+      <a href="https://github.com/liyupi" target="_blank" style="color: #fff">
+        鱼了个鱼
       </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 import {
   easyGameConfig,
@@ -76,7 +87,7 @@ import {
   yangGameConfig,
 } from "../core/gameConfig";
 import { useGlobalStore } from "../core/globalStore";
-import MyAd from "../components/MyAd.vue";
+//import MyAd from "../components/MyAd.vue";
 
 const router = useRouter();
 
@@ -90,6 +101,11 @@ const toGamePage = (config?: GameConfigType) => {
     router.push("/config");
   }
 };
+onMounted(() => {
+  setTimeout(() => {
+    toGamePage(easyGameConfig)
+  }, 500);
+});
 </script>
 
 <style scoped>
