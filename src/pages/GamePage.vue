@@ -10,8 +10,8 @@
         <!-- <h2>恭喜，你赢啦！🎉</h2>
         <img alt="程序员鱼皮" src="../assets/kunkun.png" />
         <my-ad style="margin-top: 16px" /> -->
-        <h2>通关了喵！</h2>
-        <a-button @click="goLeqeeDrawPrize"></a-button>
+        <!-- <h2>通关了喵！</h2> -->
+        <a-button @click="goLeqeeDrawPrize" style="margin-top: 50vh">通关了，抽奖去！</a-button>
       </div>
     </a-row>
     <!-- 分层选块 -->
@@ -29,10 +29,18 @@
               zIndex: 100 + block.level,
               left: block.x * widthUnit + 'px',
               top: block.y * heightUnit + 'px',
+              background: 'url('+block.type+'.png)',
+              'background-size': '80% 80%',
+              'background-repeat':'no-repeat',
+              'background-position': 'center',
+              'background-color':'white',
+              border: '2px solid blue',
             }"
             @click="() => doClickBlock(block)"
           >
-            {{ block.type }}
+          <!-- 啊呜！ -->
+            <!-- {{ block.type }} -->
+            <!-- <img :src="''+block.type+'.png'"/> -->
           </div>
         </div>
       </div>
@@ -49,25 +57,41 @@
           :data-id="randomBlock[0].id"
           class="block"
           @click="() => doClickBlock(randomBlock[0], index)"
+          :style="'background: url('+randomBlock[0].type+'.png);background-size:80% 80%;background-repeat:no-repeat;background-position: center;background-color:white;border: 2px solid blue'"
         >
-          {{ randomBlock[0].type }}
+        <!-- 啊呜！ -->
+          <!-- {{ randomBlock[0].type }} -->
         </div>
         <!-- 隐藏 -->
         <div
           v-for="num in Math.max(randomBlock.length - 1, 0)"
           :key="num"
           class="block disabled"
+          :style="(canSeeRandom
+          ?('background: url('+randomBlock[num].type+'.png);background-size:80% 80%;background-repeat:no-repeat;background-position: center;background-color:white;border: 2px solid blue')
+          :'')"
         >
-          <span v-if="canSeeRandom">
+        <!-- 啊呜！ -->
+          <!-- <span v-if="canSeeRandom">
             {{ randomBlock[num].type }}
-          </span>
+          </span> -->
         </div>
       </div>
     </a-row>
     <!-- 槽位 -->
-    <a-row v-if="slotAreaVal.length > 0" align="center" class="slot-board">
-      <div v-for="(slotBlock, index) in slotAreaVal" :key="index" class="block">
-        {{ slotBlock?.type }}
+    <a-row v-if="gameStatus!=3 && slotAreaVal.length > 0" align="center" class="slot-board">
+      <div v-for="(slotBlock, index) in slotAreaVal" :key="index" class="block"
+        :style="(
+          (slotBlock?.type)
+          ?('background: url('+slotBlock?.type+'.png);background-size:80% 80%;background-repeat:no-repeat;background-position: center;background-color:white;')
+          :''
+          )+'border: 2px solid blue;'"
+      >
+        <!-- 啊呜！ -->
+        <!-- {{ slotBlock?.type }}
+        <img v-if="slotBlock?.type"
+          :src="''+slotBlock?.type+'.png'"
+        /> -->
       </div>
     </a-row>
     <!-- 技能 -->
