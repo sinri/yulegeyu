@@ -141,12 +141,15 @@ const {
  * 回上一页
  */
 const doBack = () => {
-  router.back();
+  //router.back();
+  window.location.replace('https://testoctet.leqee.com/dingtalk_app/welcome/#/game/home');
 };
 
 const goLeqeeDrawPrize=()=>{
-  // TODO 这里是抽奖页面，做一些前端校验防止有人恶意刷
-  window.location.replace('https://www.leqee.com/');
+  // 这里是抽奖页面，做一些前端校验防止有人恶意刷
+  let now=new Date().getTime()-1660000000000;
+  let hash=now/17.0*23.0;
+  window.location.replace('https://testoctet.leqee.com/dingtalk_app/welcome/#/game/draw/'+hash);
 };
 
 onMounted(() => {
