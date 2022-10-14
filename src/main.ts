@@ -10,7 +10,9 @@ import "./style.css";
 
 // 路由
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+  history: VueRouter.createWebHashHistory(
+    //'/oc/special/2022-llgq/dist/'
+    ),
   routes,
 });
 
