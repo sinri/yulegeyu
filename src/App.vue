@@ -6,6 +6,14 @@
   </div>
 </template>
 <script setup lang="ts"></script>
+<script>
+  var script = document.createElement('script');
+  script.src = "./eruda.js";
+  document.body.appendChild(script);
+  script.onload = function () {
+    eval('eruda.init()');
+  }
+</script>
 <style scoped>
 #app {
   background: url("assets/bg.jpeg");
