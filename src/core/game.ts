@@ -28,10 +28,10 @@ const useGame = () => {
   const blockData: Record<number, BlockType> = {};
 
   // 总块数
-  let totalBlockNum = ref(0);
+  const totalBlockNum = ref(0);
 
   // 已消除块数
-  let clearBlockNum = ref(0);
+  const clearBlockNum = ref(0);
 
   // 总共划分 24 x 24 的格子，每个块占 3 x 3 的格子，生成的起始 x 和 y 坐标范围均为 0 ~ 21
   const boxWidthNum = 24;
@@ -82,6 +82,7 @@ const useGame = () => {
     console.log("initGame", gameConfig);
 
     // 0. 设置父容器宽高
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const levelBoardDom: any = document.getElementsByClassName("level-board");
     levelBoardDom[0].style.width = widthUnit * boxWidthNum + "px";
     levelBoardDom[0].style.height = heightUnit * boxHeightNum + "px";
@@ -230,6 +231,7 @@ const useGame = () => {
       let newPosX;
       let newPosY;
       let key;
+      // eslint-disable-next-line no-constant-condition
       while (true) {
         newPosX = Math.floor(Math.random() * maxX + minX);
         newPosY = Math.floor(Math.random() * maxY + minY);

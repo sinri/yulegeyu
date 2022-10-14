@@ -1,17 +1,20 @@
 module.exports = {
+  root: true,
   env: {
-    browser: true,
-    es2021: true,
     node: true,
   },
-  extends: ["plugin:vue/vue3-recommended", "plugin:prettier/recommended"],
+  extends: [
+    "plugin:vue/vue3-essential",
+    "eslint:recommended",
+    "@vue/typescript/recommended",
+    "plugin:prettier/recommended",
+  ],
   parserOptions: {
-    ecmaVersion: "latest",
-    parser: "@typescript-eslint/parser",
-    sourceType: "module",
+    ecmaVersion: 2020,
   },
-  plugins: ["vue", "@typescript-eslint", "prettier"],
   rules: {
-    "prettier/prettier": "error",
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 };

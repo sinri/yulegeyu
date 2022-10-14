@@ -44,7 +44,7 @@
     >
       羊了个羊模式
     </a-button>
-    <a-button block style="margin-bottom: 16px" @click="() => toGamePage()">
+    <a-button block style="margin-bottom: 16px" @click="() => toGamePage(null)">
       自定义 🔥
     </a-button>
     <my-ad />
@@ -82,7 +82,8 @@ const router = useRouter();
 
 const { setGameConfig } = useGlobalStore();
 
-const toGamePage = (config?: GameConfigType) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const toGamePage = (config: any) => {
   if (config) {
     setGameConfig(config);
     router.push("/game");
