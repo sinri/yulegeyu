@@ -82,7 +82,6 @@ const useGame = () => {
     console.log("initGame", gameConfig);
 
     // 0. 设置父容器宽高
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const levelBoardDom: any = document.getElementsByClassName("level-board");
     levelBoardDom[0].style.width = widthUnit * boxWidthNum + "px";
     levelBoardDom[0].style.height = heightUnit * boxHeightNum + "px";
@@ -231,7 +230,7 @@ const useGame = () => {
       let newPosX;
       let newPosY;
       let key;
-      // eslint-disable-next-line no-constant-condition
+      // @ts-ignore
       while (true) {
         newPosX = Math.floor(Math.random() * maxX + minX);
         newPosY = Math.floor(Math.random() * maxY + minY);
