@@ -13,6 +13,7 @@
     "lodash": "^4.17.21",
     "pinia": "^2.0.19",
     "pinia-plugin-persistedstate": "^2.1.1",
+    "vconsole": "^3.14.7",
     "vue": "^3.2.37",
     "vue-router": "4"
   },
@@ -20,6 +21,7 @@
     "@types/lodash": "^4.14.185",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
+    "@vitejs/plugin-legacy": "^2.2.0",
     "@vitejs/plugin-vue": "^3.0.3",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
