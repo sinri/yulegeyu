@@ -11,7 +11,7 @@ export default defineConfig({
       include: [/\.vue$/],
     }),
     legacy({
-      //targets: ['defaults', 'ie >= 11', 'chrome 52'],  //需要兼容的目标列表，可以设置多个
+      targets: ['defaults', 'ie >= 11', 'chrome >= 52','chrome 69'],  //需要兼容的目标列表，可以设置多个
       additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
       renderLegacyChunks:true,
       polyfills:[
