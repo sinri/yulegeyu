@@ -1,5 +1,5 @@
 <template>
-  <div id="gamePage">
+  <div id="gamePage" @click="playAudio">
     <a-row align="space-between">
       <a-button style="margin-bottom: 8px" @click="doBack"> 返回</a-button>
       <a-button>块数：{{ clearBlockNum }} / {{ totalBlockNum }}</a-button>
@@ -94,6 +94,9 @@
         /> -->
       </div>
     </a-row>
+    <audio id="llgq-audio" autoplay loop preload="auto">
+      <source src="../assets/bg.mp3" type="audio/mp3" />
+    </audio>
     <!-- 技能 -->
     <!-- <div class="skill-board">
       <a-space>
@@ -142,16 +145,28 @@ const {
  */
 const doBack = () => {
   //router.back();
-  window.location.replace('https://testoctet.leqee.com/dingtalk_app/welcome/#/game/home');
+  const url_test='https://testoctet.leqee.com/dingtalk_app/welcome/#/game/home';
+  const url_prod='https://oc.leqee.com/dingtalk_app/welcome/#/game/home';
+  window.location.replace(url_prod);
 };
 
 const goLeqeeDrawPrize=()=>{
   // 这里是抽奖页面，做一些前端校验防止有人恶意刷
   let now=new Date().getTime()-1660000000000;
   let hash=now/17.0*23.0;
-  window.location.replace('https://testoctet.leqee.com/dingtalk_app/welcome/#/game/draw/'+hash);
+  const url_test='https://testoctet.leqee.com/dingtalk_app/welcome/#/game/draw/'+hash;
+  const url_prod='https://oc.leqee.com/dingtalk_app/welcome/#/game/draw/'+hash;
+  window.location.replace(url_prod);
 };
-
+let isFirstClick = true
+const playAudio = () => {
+  const audio = <HTMLVideoElement>document.querySelector('#llgq-audio')
+  if(isFirstClick){
+    console.log("isFirstClick !")
+    audio.play()
+  }
+  isFirstClick = false
+}
 onMounted(() => {
   doStart();
 });

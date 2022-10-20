@@ -103,7 +103,7 @@ const toGamePage = (config?: GameConfigType) => {
 };
 onMounted(() => {
   setTimeout(() => {
-    toGamePage(yangGameConfig)
+    toGamePage(hardGameConfig)
   }, 500);
 });
 </script>
